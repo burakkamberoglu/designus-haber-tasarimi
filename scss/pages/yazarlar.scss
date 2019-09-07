@@ -1,0 +1,91 @@
+.yazarlar {
+    margin-bottom: 40px;
+
+    .baslik {
+        margin-top: 10px;
+        margin-bottom: 10px;
+    }
+
+    .yazarlistesi {
+        display: flex;
+        flex-wrap: wrap;
+
+        .yazar {
+            width: 100%;
+            border-bottom: 2px solid $color-border;
+            padding-right: 10px;
+            padding-top: 10px;
+            padding-bottom: 10px;
+            align-items: center;
+            justify-content: flex-start;
+            display: flex;
+            position: relative;
+
+            @include mq() {
+                width: 33.33%;
+                padding: 10px;
+                justify-content: center;
+            }
+
+            &:after {
+                @include mq() {
+                    content: '';
+                    width: 2px;
+                    height: 80%;
+                    right: 0;
+                    background: $color-border;
+                    display: block;
+                    position: absolute;
+                }
+            }
+
+            &:nth-child(3n) {
+                @include mq() {
+                    &:after {
+                        width: 0;
+                    }
+                }
+            }
+
+            /*
+            son 3 yazarın altındaki çizgiyi siler
+            &:nth-last-child(-n+3) {
+                border-bottom: 0;
+            }
+            */
+
+            .yazarresmi {
+                height: 80px;
+                width: 80px;
+                display: flex;
+                border-radius: 100%;
+            }
+
+            .yazarbilgiler {
+                display: flex;
+                flex-direction: column;
+                margin-left: 20px;
+                justify-content: center;
+                overflow: hidden;
+                width:100%;
+
+                .yazarismi {
+                    font-weight: $font-weight-bold;
+                    font-size: $font-size * 0.9;
+                    max-height: 38px;
+                    overflow: hidden;
+                    @include mq(){
+                        font-size: $font-size;
+                        max-height: 44px;
+                    }
+                }
+
+                .yazaryazisi {
+                    font-size: $font-size-small;
+                    max-height: 35px;
+                    overflow: hidden;
+                }
+            }
+        }
+    }
+}

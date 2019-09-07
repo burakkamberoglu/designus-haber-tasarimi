@@ -1,0 +1,48 @@
+html {font-size: 16px;}
+
+body {
+  font-family: $font-family;
+  line-height: 1.58;
+}
+
+
+p {margin-bottom: 1.25em;}
+
+h1, h2, h3, h4, h5 {
+  font-weight: $font-weight-bold;
+  line-height: 1.15;
+}
+
+h1 {font-size: 4.209em;}
+
+h2 {font-size: 3.157em;}
+
+h3 {font-size: 2.369em;}
+
+h4 {font-size: 1.777em;}
+
+h5 {font-size: 1.333em;}
+
+small, .text_small {font-size: 0.75em;}
+
+.container {
+  max-width: $max-width;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: $gutter;
+  padding-right: $gutter;
+  overflow:hidden;
+}
+
+a {
+  transition: .15s;
+}
+
+.icon {
+  display: inline-block;
+  width: 24px;
+  height: 24px;
+  stroke-width: 0;
+  stroke: currentColor;
+  fill: currentColor;
+}

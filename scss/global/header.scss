@@ -1,0 +1,188 @@
+$Header-height: 70px;
+
+.Header {
+  height: $Header-height;
+  border-bottom: $border $color-border;
+  z-index: 5;
+  background: $color-white;
+  width:100%;
+
+  @include print() {
+    margin-bottom: 10px;
+  }
+  
+  /*
+  @include mq(){
+    position: sticky;
+    top: 0;
+  }
+  */
+
+  .container {
+    position: relative;
+    display: flex;
+    height: 100%;
+  }
+
+  &-logo {
+    display: flex;
+    margin-right: auto;
+    align-items: center;
+
+
+    img {
+      width: 144px;
+    }
+  }
+
+  &-sagtaraf {
+    display: flex;
+    align-items: center;
+    overflow: hidden;    
+    width:100%;
+    margin-left:20px;
+    justify-content: flex-end;
+    @include mq(){
+    position: relative;
+    }
+
+    a,span {
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      @include mq(){
+        margin-right: 20px;
+      }
+      &:hover {
+        color: $font-hover-color;
+      }
+
+      &:last-child {
+        margin-right: 0;
+        @include mq(){
+          margin-right: 0;
+        }
+      }
+    }
+
+    a,span:first-child{
+      display:none;
+      @include mq(){
+        display:flex;
+      }
+    }
+
+    svg.icon-foto,
+    svg.icon-video,
+    svg.icon-havadurumu {
+      color: $color-red;
+      margin-right: 5px;
+    }
+
+    svg {
+      width: 22px;
+      height: 22px;
+    }
+
+    .havaaciklama {
+      font-size: $font-size-small / 1.05;
+      font-weight: $font-weight-bold;
+    }
+
+    .icon-arama {
+      margin-right: 0;
+
+      &:hover {
+        color: $font-hover-color;
+      }
+    }
+
+    .aramatikla {
+      cursor: pointer;
+      width: 22px;
+      height: 22px;
+      margin-left:auto;
+      @include mq(){
+        margin-left:0;
+        margin-right:0;
+      }
+    }
+
+    .aramaform {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      left: 0;
+      top: 0;
+      z-index:6;
+      visibility: hidden;
+      opacity: 0;
+      transition: 350ms opacity ease-in-out, 350ms visibility ease-in-out;
+      @include mq(){
+        width: 50%;
+        right:0;
+        left:inherit;
+      }
+
+      input {
+        border: none;
+        border-bottom: $border $color-black;
+        outline: none;
+        border-radius:0;
+        font-size: $font-size * 1.125;
+        font-family: $font-family;
+        color: $color-black;
+        font-weight: $font-weight-bold;
+        padding-left: 10px;
+        padding-right: 80px;
+        width: 100%;
+        height: 100%;
+        @include mq(){
+          padding-right: 60px;
+        }
+
+        &::placeholder {
+          color: #333;
+        }
+      }
+
+      button {
+        position: absolute;
+        right: 50px;
+        overflow: hidden;
+        top: 50%;
+        transform: translateY(-50%);
+        cursor: pointer;
+        outline:none;
+        background:transparent;
+        @include mq(){
+          right:0;
+          
+        }
+      }
+
+      .icon-kapat {
+        position: absolute;
+        right: 20px;
+        cursor: pointer;
+        top: 50%;
+        transform: translateY(-50%);
+        width: 24px;
+        height: 24px;
+
+        @include mq(){
+          right: 30px;
+        }
+        &:hover {
+          color: $font-hover-color;
+        }
+      }
+    }
+
+    .aramaform.aramashow {
+      visibility: visible; // değişicek
+      opacity: 1;
+    }
+  }
+
+}

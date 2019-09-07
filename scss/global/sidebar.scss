@@ -1,0 +1,85 @@
+.sidebar {
+    width:100%;
+    overflow: hidden;
+    @include mq(){
+        width: 300px;
+    }
+
+    @include print() {
+        display: none;
+    }
+
+    .baslik {
+        margin-bottom: 20px;
+        padding-bottom: 10px;
+        margin-top: 20px;
+        border-bottom: $border $color-border;
+        display: flex;
+
+
+        svg {
+            height: 22px;
+            width: 22px;
+            color: $color-red;
+            margin-right: 10px;
+        }
+
+        h5 {
+            font-weight: $font-weight-bold;
+            font-size: $font-size * 1.1;
+        }
+
+    }
+
+    .widget {
+        margin-bottom: 10px;
+    }
+
+    .widgetliste {
+        display: flex;
+        flex-direction: column;
+
+        .widgetyazi {
+            display: flex;
+            flex-wrap: wrap;
+            width: 100%;
+            padding-bottom: 10px;
+            padding-top: 10px;
+            border-bottom: $border $color-border;
+            align-items: center;
+
+            &:hover>.yazilink {
+                color: $font-hover-color;
+            }
+
+            &:last-child {
+                border-bottom: none;
+            }
+
+            &:first-child {
+                padding-top: 0;
+            }
+
+            .thumblink {
+                width: calc(50% - 30px);
+                margin-right: 10px;
+
+                .widgetthumb {
+                    width: 100%;
+                    overflow: hidden;
+                    height: 80px;
+                }
+            }
+
+            .yazilink {
+                width: calc(50% + 20px);
+                font-weight: $font-weight-bold;
+                font-size: $font-size-small;
+                display: flex;
+                max-height: 64px;
+                overflow: hidden;
+
+            }
+        }
+    }
+}

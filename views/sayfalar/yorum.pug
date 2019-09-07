@@ -1,0 +1,61 @@
+.yorum
+    .yorumbuton
+        .soltaraff
+            svg.icon.icon-comment
+                use(xlink:href='#icon-comment')
+            span.goster Haber Yorumlarını Göster
+            span.gizle Haber Yorumlarını Gizle
+        .sagtaraff
+            .plus
+                svg.icon.icon-plus
+                    use(xlink:href='#icon-plus')
+            .minus
+                svg.icon.icon-minus
+                    use(xlink:href='#icon-minus')
+    .yorumalani
+        .yorumgonderbuton
+            svg.icon.icon-pen
+                use(xlink:href='#icon-pen')
+            span Bir Yorum Yapın
+        form.yorumformu(action="")
+            .basarili.hata Yorumunuz gönderilemedi!
+            .basarili Yorumunuz başarıyla gönderildi!
+            textarea.yorum(name="yorum", placeholder="Bu haber hakkında ne düşünüyorsunuz?")
+            .yorumbilgi
+                input.yorumisim(name="yorumatan", placeholder="İsminiz")
+                button.yorumgonder(value="1",name="yorumgonder") GÖNDER
+        .yorumlistesi
+            ul.yorumlar
+                li.yorum
+                    .yorumyazankisim
+                        a.yorumyazanisim(href='') yorumluyorum 
+                        span.yorumtarih 3 saat önce
+                    .yorumkismi
+                        p.yorumyazi Lorem ipsum dolor sit amet consectetur adipisicing elit. Minus cupiditate ipsa vel sint atque voluptas pariatur commodi quod iure eaque et a quidem suscipit quaerat sapiente mollitia, voluptate officia architecto!
+                    .yorumaltkisim
+                        a.cevapla(href='') 
+                            svg.icon.icon-reply
+                                use(xlink:href='#icon-reply')
+                            | Cevapla
+                li.yorum
+                    .yorumyazankisim
+                        a.yorumyazanisim(href='') yorumluyorum 
+                        span.yorumtarih 3 saat önce
+                    .yorumkismi
+                        p.yorumyazi Lorem ipsum dolor sit amet consectetur adipisicing elit. Minus cupiditate ipsa vel sint atque voluptas pariatur commodi quod iure eaque et a quidem suscipit quaerat sapiente mollitia, voluptate officia architecto!
+                    .yorumaltkisim
+                        a.cevapla(href='') 
+                            svg.icon.icon-reply
+                                use(xlink:href='#icon-reply')
+                            | Cevapla
+                li.yorum
+                    .yorumyazankisim
+                        a.yorumyazanisim(href='') yorumluyorum 
+                        span.yorumtarih 3 saat önce
+                    .yorumkismi
+                        p.yorumyazi Lorem ipsum dolor sit amet consectetur adipisicing elit. Minus cupiditate ipsa vel sint atque voluptas pariatur commodi quod iure eaque et a quidem suscipit quaerat sapiente mollitia, voluptate officia architecto!
+                    .yorumaltkisim
+                        a.cevapla(href='') 
+                            svg.icon.icon-reply
+                                use(xlink:href='#icon-reply')
+                            | Cevapla

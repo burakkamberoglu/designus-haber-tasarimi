@@ -1,0 +1,165 @@
+.Footer {
+    border-top: $border $color-border;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    background-color: $color-white;
+
+    .footer-top {
+        display: flex;
+        padding-top: 40px;
+        padding-bottom: 20px;
+        width: 100%;
+        border-bottom: $border $color-border;
+
+        .footer-logo {
+            width:50%;
+            display: flex;
+            margin-right: auto;
+            align-items: center;
+
+            @include mq(){
+                width:25%;
+            }
+            img {
+                width: 125px;
+            }
+        }
+
+        .footer-menu {
+            width:50%;
+            display: flex;
+            flex-direction: row;
+            flex-wrap:wrap;
+            justify-content: flex-end;
+
+            @include mq() {
+                width:75%;
+                flex-direction: row;
+            }
+
+            .footer-menu-item {
+                margin-right: 20px;
+
+                .footer-item {
+                    display: flex;
+                    font-weight: $font-weight-bold;
+                    align-items: center;
+                    font-size: $font-size-small;
+
+                    &:hover {
+                        color: $font-hover-color;
+                    }
+
+                    svg {
+                        width: $font-size-small * 1.5;
+                        height: $font-size-small * 1.5;
+                        margin-right: 10px;
+                        color: $color-red;
+                    }
+                }
+
+                &:last-child {
+                    @include mq(){
+                    margin-right: 0;
+                }
+                }
+            }
+        }
+    }
+
+    .footer-bottom {
+        margin-top: 10px;
+        margin-bottom: 20px;
+
+        .footer-ust {
+            display: flex;
+            flex-direction:column;
+            @include mq(){
+                flex-direction:row;
+            }
+
+            .copyright {
+                margin-right: auto;
+                font-weight: $font-weight-bold;
+                color: darken($color-border, 80);
+                font-size: $font-size-small * 0.9;
+                margin-bottom:10px;
+                @include mq(){
+                    margin-bottom:0;
+                }
+            }
+
+            .footer-alt-menu {
+                display: flex;
+                flex-wrap: wrap;
+
+                .footer-alt-menu-item {
+                    margin-right: 10px;
+
+                    .footer-alt-item {
+                        font-size: $font-size-small * 0.9;
+                        font-weight: $font-weight-bold;
+
+                        &:hover {
+                            color: $font-hover-color;
+                        }
+                    }
+
+                    &:last-child {
+                        margin-right: 0;
+                    }
+                }
+            }
+        }
+
+        .footer-alt {
+            display: flex;
+            margin-top: 10px;
+            @include mq(){
+                margin-top:5px;
+            }
+
+            .tasarim {
+                font-size: $font-size-small * 0.75;
+                font-weight: $font-weight-bold;
+                color: darken($color-border, 25);
+
+                a {
+                    border-bottom: 1px solid darken($color-border, 25);
+                    padding-bottom: 1px;
+                    font-style: oblique;
+
+                    &:hover {
+                        color: darken($color-border, 50);
+                    }
+                }
+            }
+
+            .sosyalaglar {
+                display: flex;
+                margin-left:auto;
+                .sosyalag-item {
+                    margin-right: 10px;
+
+                    &:last-child {
+                        margin-right: 0;
+                    }
+
+                    .sosyalag {
+
+
+                        svg {
+                            color: $color-red;
+                            width: $font-size-small;
+                            height: $font-size-small;
+                        }
+
+                        &:hover>svg {
+                            color: darken($color-red, 10);
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

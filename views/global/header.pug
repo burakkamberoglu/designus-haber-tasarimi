@@ -1,0 +1,31 @@
+header.Header
+  .container
+    a.Header-logo(href='index.html')
+      img(src='img/site-logo.png', alt='')
+
+    .Header-sagtaraf
+      span
+        svg.icon.icon-havadurumu
+          use(xlink:href='#icon-havadurumu')
+        span.havaaciklama
+          | 30°C İstanbul
+      a(href='fotogaleri.html')
+        svg.icon.icon-foto
+          use(xlink:href='#icon-foto')
+        span.havaaciklama
+          | Foto Galeri
+      a(href='fotogaleri.html')
+        svg.icon.icon-video
+          use(xlink:href='#icon-video')
+        span.havaaciklama
+          | Video Galeri
+      span.aramatikla
+        svg.icon.icon-arama
+          use(xlink:href='#icon-arama')
+      form(action="").aramaform
+        input(type="text" placeholder="Arama")
+        button(type="submit")
+          svg.icon.icon-arama
+            use(xlink:href='#icon-arama')
+        svg.icon.icon-kapat
+          use(xlink:href='#icon-kapat')

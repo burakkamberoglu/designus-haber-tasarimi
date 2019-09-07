@@ -1,0 +1,77 @@
+.aramasonucu {
+  .baslik {
+    margin-bottom: 20px;
+    padding-bottom: 10px;
+    border-bottom: $border $color-border;
+    display: flex;
+
+
+    svg {
+      height: 22px;
+      width: 22px;
+      color: $color-red;
+      margin-right: 10px;
+    }
+
+    h5 {
+      font-weight: $font-weight-bold;
+      font-size: $font-size * 1.1;
+    }
+
+  }
+
+  .konular {
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+
+    .konu {
+      width: calc(50% - 10px);
+      margin-bottom: 10px;
+      margin-right: 20px;
+
+      @include mq() {
+        width: calc(29% - 59px);
+      }
+
+      &:hover .konu-baslik {
+        color: $font-hover-color;
+      }
+
+      &:nth-child(2n) {
+        margin-right: 0;
+
+        @include mq() {
+          margin-right: 20px;
+        }
+      }
+
+      &:nth-child(4n) {
+        @include mq() {
+          margin-right: 0;
+        }
+      }
+
+      .konu-baslik {
+        display: block;
+        max-height: 58px;
+        overflow: hidden;
+        margin-top: 10px;
+        font-size: $font-size * 0.8;
+        font-weight: $font-weight-bold;
+        @include mq(){
+          font-size: $font-size;
+          max-height: 50px;
+        }
+      }
+
+      img {
+        width: 100%;
+        height: 100px;
+        @include mq(){
+          height:150px;
+        }
+      }
+    }
+  }
+}

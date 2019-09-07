@@ -1,0 +1,23 @@
+@import "config/variable";
+@import "config/mixin";
+//
+@import "helper/normalize";
+@import "helper/formalize";
+@import "helper/global";
+//
+@import "global/header";
+@import "global/navigation";
+@import "global/footer";
+@import "global/sidebar";
+//
+@import "pages/index";
+@import "pages/haberdetay";
+@import "pages/kategoridetay";
+@import "pages/fotogaleri";
+@import "pages/yazarlar";
+@import "pages/aramasonucu";
+@import "pages/koseyazisi";
+@import "pages/fotodetay";
+//
+@import "plugin/flickity";
+@import "plugin/wordpress";

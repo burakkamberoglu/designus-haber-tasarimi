@@ -1,0 +1,479 @@
+.Navigation {
+  height: 50px;
+  background-color: $color-white;
+  border-bottom: $border $color-border;
+  z-index: 5;
+  width: 100%;
+  position: relative;
+
+  @include print() {
+    display: none;
+  }
+
+  /*
+  @include mq() {
+    position: sticky;
+    top: 70px;
+  }
+  */
+
+  .ok {
+    position: absolute;
+    right: 0;
+    top: 0;
+    height: 100%;
+    order: 5;
+    visibility: hidden;
+    opacity: 0;
+    transition: 350ms opacity ease-in-out, 350ms visibility ease-in-out;
+
+    @include mq() {
+      position: relative;
+      top: inherit;
+      right: inherit;
+    }
+
+    &:before {
+      content: '';
+      border-style: solid;
+      right: 20px;
+      z-index: 5;
+      bottom: 0;
+      position: absolute;
+      border-width: 0 10px 10px 10px;
+      border-color: transparent transparent darken($color-border, 8) transparent;
+
+      @include mq() {
+        right: 0;
+      }
+    }
+  }
+
+  .container {
+    height: 100%;
+    display: flex;
+    align-items: center;
+    overflow-x: scroll;
+
+    @include mq("tablet") {
+      overflow-x: hidden;
+    }
+
+    .menuicon {
+      margin-left: auto;
+      cursor: pointer;
+
+      &:before {
+        content: '';
+        background: #ffffff;
+        background: -webkit-linear-gradient(90deg, rgba(255,255,255,0) 0%, $color-white 25%, $color-white 100%);
+        background: linear-gradient(90deg, rgba(255,255,255,0) 0%, $color-white 25%, $color-white 100%);
+        width: 64px;
+        height: 48px;
+        right: 0;
+        top: 0;
+        position: absolute;
+
+        @include mq() {
+          display: none;
+        }
+      }
+
+      @include mq() {
+        right: inherit;
+        padding-left: inherit;
+        padding-right: 0;
+        background: inherit;
+        position: inherit;
+      }
+
+      &:hover {
+        color: $font-hover-color;
+      }
+
+      &>svg {
+        right: 20px;
+        background: $color-white;
+        width: 22px;
+        height: 22px;
+        top: 50%;
+        position: absolute;
+        transform: translateY(-50%);
+
+        @include mq() {
+          transform: inherit;
+          position: relative;
+          top: inherit;
+          right: 0;
+        }
+      }
+
+      &~.ok.goster {
+        visibility: visible;
+        opacity: 1;
+      }
+
+      .Navigation-MegaMenu.goster {
+        opacity: 1;
+        visibility: visible;
+      }
+    }
+  }
+
+  &-item {
+    margin-right: 40px;
+    font-size: $font-size-small;
+    color: $color-black;
+    font-weight: $font-weight-bold;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    position: relative;
+    &:before {
+      content: '';
+      width: 100%;
+      height: 0;
+      background: $font-hover-color;
+      position: absolute;
+      bottom:0;
+    }
+
+    &:hover {
+      color: $font-hover-color;
+      &:before{
+        height:2px;
+      }
+      
+    }
+
+
+    &:last-of-type {
+      padding-right: 72px;
+
+      @include mq() {
+        padding-right: 0;
+      }
+    }
+  }
+}
+
+.Navigation-MegaMenu {
+  background-color: darken($color-border, 8);
+  box-shadow: 0 3px 4px rgba(0, 0, 0, 0.1);
+  padding-bottom: 5px;
+  width: 100%;
+  left: 0;
+  opacity: 0;
+  visibility: hidden;
+  transition: 350ms opacity ease-in-out, 350ms visibility ease-in-out;
+  position: absolute;
+  z-index: 3;
+  top: 48px;
+
+  .container {
+    display: flex;
+    flex-direction: column;
+  }
+
+
+  .kategoriler {
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+    margin-bottom: 10px;
+
+    .kategori {
+      display: flex;
+      margin-right: 20px;
+      margin-bottom: 5px;
+      margin-top: 10px;
+      width: calc(50% - 10px);
+      border-bottom: $border darken($color-border, 15);
+
+      @include mq() {
+        width: calc(25% - 15px);
+      }
+
+      &:hover>.kategorilink {
+        color: $font-hover-color;
+      }
+
+      .kategorilink {
+        display: flex;
+        color: lighten($color-black, 15);
+        padding-bottom: 5px;
+        font-weight: $font-weight-bold;
+        font-size: $font-size-small;
+        align-items: center;
+      }
+
+      svg {
+        margin-right: 10px;
+        height: 18px;
+        width: 18px;
+      }
+
+
+      &:nth-child(2n) {
+        margin-top: 20px;
+        margin-right: 0;
+
+        @include mq() {
+          margin-top: inherit;
+          margin-right: 20px;
+        }
+      }
+
+      &:nth-child(4n) {
+        @include mq() {
+          margin-right: 0;
+        }
+      }
+
+      &:nth-child(-n+4) {
+        @include mq() {
+          margin-top: 30px;
+        }
+      }
+
+      &:first-child {
+        margin-top: 20px;
+
+      }
+    }
+  }
+
+  .konular {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    margin-bottom: 10px;
+
+    @include mq() {
+      flex-wrap: wrap;
+      flex-direction: row;
+    }
+
+    .konu {
+      padding: 7px;
+      background: $color-white;
+      margin-top: 5px;
+      margin-bottom: 5px;
+      display: flex;
+      align-items: center;
+      width: 100%;
+      transition: 200ms background ease-in-out;
+
+      @include mq() {
+        width: calc(33.4% - 15px);
+        margin-right: 20px;
+      }
+
+      &:hover {
+        background: darken($color-white, 5);
+        box-shadow: 0 0 25px #ebebeb;
+      }
+
+      &:nth-child(3n) {
+        margin-right: 0;
+      }
+
+      &:nth-child(-n+3) {
+        margin-top: 10px;
+      }
+
+      .konuresimlink {
+        height: 60px;
+        width: 40%;
+        margin-right: 20px;
+        overflow: hidden;
+
+        img {
+          width: 100%;
+          height: 100%;
+          display: block;
+        }
+      }
+
+      .konubaslik {
+        font-weight: $font-weight-bold;
+        display: flex;
+        font-size: $font-size * 0.8;
+        width: 100%;
+        padding-right: 20px;
+        max-height: 50px;
+        overflow: hidden;
+        color: $color-black;
+
+        @include mq() {
+          font-size: $font-size * 0.9;
+        }
+      }
+    }
+  }
+
+}
+
+.Sondakika {
+  background: $color-red;
+  z-index: 4;
+  margin-bottom: 20px;
+  width: 100%;
+  max-height: 45px;
+  overflow: hidden;
+
+  @include print() {
+    display: none;
+  }
+
+  /*
+  @include mq() {
+    position: sticky;
+    top: 120px;
+  }
+  */
+
+  .sondakikahaber {
+    display: flex;
+    width: 100%;
+    align-items: center;
+    color: $color-white;
+    overflow: hidden;
+
+    .slidesonhaber {
+      width: 100%;
+
+      .flickity-prev-next-button {
+        background: $color-red;
+        border-radius: 0;
+        width: 24px;
+        height: 45px;
+
+        &.previous {
+          right: 20px;
+          left: inherit;
+        }
+
+        &.next {
+          right: 0;
+          left: inherit;
+        }
+
+        svg {
+          left: 50%;
+          top: 50%;
+          width: 16px;
+          height: 16px;
+          transform: translate(-50%, -50%);
+
+          path {
+            fill: $color-white;
+            width: 18px;
+            height: 18px;
+          }
+        }
+      }
+    }
+
+    .sontitle {
+      z-index: 4;
+      display: flex;
+      justify-content: center;
+      margin-right: 10px;
+      padding-top: 10px;
+      padding-bottom: 10px;
+      background: darken($color-red, 7);
+      border-left: 2px solid darken($color-red, 9);
+      border-right: 2px solid darken($color-red, 9);
+      padding-left: 10px;
+      padding-right: 10px;
+      position: relative;
+
+      @include mq() {
+        transform: skew(-25deg);
+        margin-right: 20px;
+        margin-left: 10px;
+      }
+
+      span {
+        letter-spacing: -0.25px;
+        font-size: $font-size;
+        font-weight: $font-weight-bold;
+        text-align: center;
+        white-space: nowrap;
+        text-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+
+        @include mq() {
+          transform: skew(25deg);
+        }
+      }
+    }
+
+    .sonhaber {
+      display: flex;
+      height: 45px;
+      justify-content: center;
+      animation: 2s fadeIn ease-in-out alternate-reverse infinite;
+      width: 100%;
+
+      a {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        width: 100%;
+
+        @include mq() {
+          flex-direction: row;
+          justify-content: flex-start;
+          align-items: center;
+          margin-left: 10px;
+        }
+
+        &:hover {
+          color: darken($color-white, 10);
+        }
+      }
+
+      .title {
+        font-size: $font-size * 0.8;
+        line-height: 1;
+        font-weight: $font-weight-bold;
+        width: 90%;
+
+        @include mq() {
+          width: 100%;
+          font-size: $font-size * 0.9;
+        }
+      }
+
+      .time {
+        display: none;
+        font-weight: $font-weight-bold;
+        margin-right: 10px;
+        border-bottom: 2px solid $color-white;
+        padding-bottom: 2px;
+        padding-left: 5px;
+        padding-right: 5px;
+        font-size: $font-size * 0.75;
+        font-style: oblique;
+        color: darken($color-white, 3);
+        letter-spacing: -0.5px;
+        align-items: center;
+        position: relative;
+
+        @include mq() {
+          display: flex;
+        }
+
+        svg {
+          margin-right: 3px;
+          height: 16px;
+          width: 16px;
+          transform: skew(-10deg);
+        }
+
+      }
+    }
+  }
+}
